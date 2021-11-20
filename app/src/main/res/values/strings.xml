@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HappyFace</string>
+    <string name="happy_face">Happy Face :)</string>
+    <string name="smileyface">smileyFace</string>
+    <string name="let_s_take_a_picture_n_shake_it_up">Let\'s take a picture! \n Shake it up!</string>
+    <string name="processing">Processing</string>
+</resources>
