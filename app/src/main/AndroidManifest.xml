@@ -13,18 +13,19 @@
         android:theme="@style/Theme.HappyFace">
         <activity
             android:name=".ExpressionReading"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".CameraMenu" />
         <activity
             android:name=".PictureViewAndProcess"
             android:exported="false"
             android:parentActivityName=".CameraMenu" />
         <activity
             android:name=".CameraMenu"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:parentActivityName=".CameraMenu">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

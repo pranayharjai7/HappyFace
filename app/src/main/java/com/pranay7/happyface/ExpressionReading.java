@@ -20,7 +20,7 @@ public class ExpressionReading extends AppCompatActivity {
     private float headEulerAngleX;
     private float headEulerAngleY;
     private float headEulerAngleZ;
-
+    private String expression;
     private ActivityExpressionReadingBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +42,17 @@ public class ExpressionReading extends AppCompatActivity {
             if((headEulerAngleX < 30) && (headEulerAngleX> -30) && (headEulerAngleY < 30) && (headEulerAngleY> -30)){
                 if(smileProb<0.01){
                     binding.expressionTextView.append("SAD");
+                    expression = "SAD";
                 }
                 else if(smileProb<0.3){
                     binding.expressionTextView.append("NEUTRAL");
+                    expression = "NEUTRAL";
                 }
                 else{
                     binding.expressionTextView.append("HAPPY");
+                    expression = "HAPPY";
                 }
+                onExpressionReading(expression);
             }
             else{
                 binding.expressionTextView.setText("Nice click!\n But can't see you clearly.. :(\n Try looking at the camera and do-over?");
@@ -57,5 +61,9 @@ public class ExpressionReading extends AppCompatActivity {
         else{
             binding.expressionTextView.setText("Nice picture!\n But you are missing :(\n Wanna try again?");
         }
+    }
+
+    private void onExpressionReading(String expression) {
+        
     }
 }

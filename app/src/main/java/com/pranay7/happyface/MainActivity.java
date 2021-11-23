@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
-        binding.smileyImageView.postDelayed(launchTask,3000);
+        binding.smileyImageView.postDelayed(launchTask,2000);
 
     }
 
