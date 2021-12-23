@@ -3,10 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/drawable/ic_home.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/drawable/ic_logo1_background.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/drawable/ic_logo_background.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/drawable/ic_ssh.xml" value="0.2703125" />
         <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/activity_camera_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/activity_expression_reading.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/activity_history.xml" value="0.25416666666666665" />
         <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/activity_picture_view_and_process.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/expression_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/fragment_history.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/nav_header.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/layout/nav_menu_header.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/menu/clear_history_options_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/menu/drawer_menu_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/mipmap-anydpi-v26/ic_clear_history.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/mipmap-anydpi-v26/ic_logo2.xml" value="0.2703125" />
+        <entry key="..\:/Pranay/Projects/AndroidStudioProjects/HappyFace/app/src/main/res/mipmap-anydpi-v26/ic_logo2_round.xml" value="0.2703125" />
       </map>
     </option>
   </component>

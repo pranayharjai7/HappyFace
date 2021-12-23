@@ -6,13 +6,21 @@ import static com.pranay7.happyface.PictureViewAndProcess.HEAD_EULER_ANGLE_Z;
 import static com.pranay7.happyface.PictureViewAndProcess.MANUAL_TESTING_LOG;
 import static com.pranay7.happyface.PictureViewAndProcess.SMILE_PROB;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.pranay7.happyface.database.Expression;
+import com.pranay7.happyface.database.ExpressionDatabase;
 import com.pranay7.happyface.databinding.ActivityExpressionReadingBinding;
+
+import java.time.LocalDateTime;
 
 public class ExpressionReading extends AppCompatActivity {
 
@@ -22,6 +30,8 @@ public class ExpressionReading extends AppCompatActivity {
     private float headEulerAngleZ;
     private String expression;
     private ActivityExpressionReadingBinding binding;
+    private ExpressionDatabase expressionDatabase;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,29 +51,52 @@ public class ExpressionReading extends AppCompatActivity {
         if(smileProb != -1){
             if((headEulerAngleX < 30) && (headEulerAngleX> -30) && (headEulerAngleY < 30) && (headEulerAngleY> -30)){
                 if(smileProb<0.01){
-                    binding.expressionTextView.append("SAD");
+                    binding.expressionTextView.append("SAD 😢");
                     expression = "SAD";
                 }
                 else if(smileProb<0.3){
-                    binding.expressionTextView.append("NEUTRAL");
+                    binding.expressionTextView.append("NEUTRAL 😐");
                     expression = "NEUTRAL";
                 }
                 else{
-                    binding.expressionTextView.append("HAPPY");
+                    binding.expressionTextView.append("HAPPY 😄\n\nHi Happy face!");
                     expression = "HAPPY";
                 }
+                saveExpression(expression);
                 onExpressionReading(expression);
             }
             else{
-                binding.expressionTextView.setText("Nice click!\n But can't see you clearly.. :(\n Try looking at the camera and do-over?");
+                binding.expressionTextView.setText("Nice click!\n But can't see you clearly.. 😓\n Try looking at the camera and do-over?");
             }
         }
         else{
-            binding.expressionTextView.setText("Nice picture!\n But you are missing :(\n Wanna try again?");
+            binding.expressionTextView.setText("Nice picture!\n But you are missing 😓\n Wanna try again?");
         }
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void saveExpression(String expression) {
+        expressionDatabase = Room.databaseBuilder(this,ExpressionDatabase.class,"Expression_db")
+                .fallbackToDestructiveMigration()
+                .build();
+
+        new Thread(() -> {
+            Expression expression1 = new Expression();
+            expression1.setExpression(expression);
+            expression1.setDateTime(LocalDateTime.now().toString());
+
+            expressionDatabase.expressionDAO().insertNewExpression(expression1);
+        }).start();
     }
 
     private void onExpressionReading(String expression) {
         
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,CameraMenu.class);
+        startActivity(intent);
     }
 }

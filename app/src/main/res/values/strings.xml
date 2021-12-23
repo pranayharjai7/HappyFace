@@ -4,4 +4,8 @@
     <string name="smileyface">smileyFace</string>
     <string name="let_s_take_a_picture_n_shake_it_up">Let\'s take a picture! \n Shake it up!</string>
     <string name="processing">Processing</string>
+    <string name="navigation_bar_open">Open Navigation Drawer</string>
+    <string name="navigation_bar_close">Close Navigation Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
