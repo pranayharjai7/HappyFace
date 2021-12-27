@@ -37,7 +37,6 @@ public class CameraMenu extends AppCompatActivity implements SensorEventListener
     private static final float SHAKE_THRESHOLD = 6.25f; // m/s^2
     private static final int MIN_TIME_BETWEEN_SHAKES_MILLISECONDS = 1000;
     private static long mLastShakeTime;
-    private boolean doubleBackToExitPressedOnce = false;
 
     private ActivityCameraMenuBinding binding;
     private Bitmap thumbnail;
@@ -60,7 +59,6 @@ public class CameraMenu extends AppCompatActivity implements SensorEventListener
         drawerToggle.syncState();
 
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
             binding.navView.setCheckedItem(R.id.nav_home);
         }
 
@@ -99,6 +97,7 @@ public class CameraMenu extends AppCompatActivity implements SensorEventListener
                     Intent intent = new Intent(this, PictureViewAndProcess.class);
                     intent.putExtra(THUMBNAIL_FROM_CAMERA, thumbnail);
                     startActivity(intent);
+                    finish();
                 }
             }
     );
@@ -111,6 +110,24 @@ public class CameraMenu extends AppCompatActivity implements SensorEventListener
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return true;
+    }
+
+    public boolean homeNavigationButtonClicked(@NonNull MenuItem item){
+        binding.drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    public boolean historyNavigationButtonClicked(@NonNull MenuItem item){
+        binding.drawerLayout.closeDrawer(GravityCompat.START);
+        sensorManager.unregisterListener(this);
+        Intent intent = new Intent(this, History.class);
+        startActivity(intent);
+        return true;
     }
 
     @Override
@@ -127,43 +144,8 @@ public class CameraMenu extends AppCompatActivity implements SensorEventListener
         }
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int i) {
+    private boolean doubleBackToExitPressedOnce = false;
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        sensorManager.unregisterListener(this);
-    }
-
-    public boolean homeNavigationButtonClicked(@NonNull MenuItem item){
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
-        binding.drawerLayout.closeDrawer(GravityCompat.START);
-        sensorManager.registerListener(this,accelerometer,SensorManager.SENSOR_DELAY_NORMAL);
-        return true;
-    }
-
-    public boolean historyNavigationButtonClicked(@NonNull MenuItem item){
-        binding.drawerLayout.closeDrawer(GravityCompat.START);
-        sensorManager.unregisterListener(this);
-        Intent intent = new Intent(this, History.class);
-        startActivity(intent);
-        return true;
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return true;
-    }
-    
     @Override
     public void onBackPressed() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -185,9 +167,23 @@ public class CameraMenu extends AppCompatActivity implements SensorEventListener
 
             new Handler(Looper.getMainLooper()).postDelayed(runnable,2000);
         }
+    }
 
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(this);
+    }
 
 }

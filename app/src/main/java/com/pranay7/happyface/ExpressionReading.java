@@ -98,5 +98,6 @@ public class ExpressionReading extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this,CameraMenu.class);
         startActivity(intent);
+        finish();
     }
 }

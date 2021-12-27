@@ -86,6 +86,7 @@ public class PictureViewAndProcess extends AppCompatActivity {
         intent.putExtra(HEAD_EULER_ANGLE_Z,HeadEulerAngleZ);
         intent.putExtra(SMILE_PROB,smileProb);
         startActivity(intent);
+        finish();
     }
 
     private InputImage imageFromBitmap(Bitmap bitmap) {
@@ -145,4 +146,10 @@ public class PictureViewAndProcess extends AppCompatActivity {
         return result;
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,CameraMenu.class);
+        startActivity(intent);
+        finish();
+    }
 }
