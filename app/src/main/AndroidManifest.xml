@@ -22,11 +22,11 @@
         <activity
             android:name=".ExpressionReading"
             android:exported="false"
-            android:parentActivityName=".CameraMenu" />
+            />
         <activity
             android:name=".PictureViewAndProcess"
             android:exported="false"
-            android:parentActivityName=".CameraMenu" />
+            />
         <activity
             android:name=".CameraMenu"
             android:exported="false"
