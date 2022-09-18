@@ -32,5 +32,6 @@ public class MainActivity extends AppCompatActivity {
     public void screenClicked(View view) {
         Intent intent = new Intent(this,CameraMenu.class);
         startActivity(intent);
+        finish();
     }
 }
